@@ -1,0 +1,8 @@
+$cd 04_01
+$minikube addons enable ingress
+$kubectl apply -f envbin.yaml
+$kubectl apply -f envbin-expose.yaml
+$kubectl get ingress # should output and ingress
+$minikube ip  # [MINIKUBE-LOCAL-IP]
+add in the end of /etc/hosts the line
+[MINIKUBE-LOCAL-IP] envbin.example.com
