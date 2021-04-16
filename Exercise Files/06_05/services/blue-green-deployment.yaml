@@ -3,7 +3,6 @@ kind: Deployment
 metadata:
   name: blue-green
 spec:
-  replicas: 3
   selector:
     matchLabels:
       app: blue-green
@@ -12,6 +11,8 @@ spec:
       labels:
         app: blue-green
     spec:
+      shareProcessNamespace: true
       containers:
         - name: blue-green
           image: mtinside/blue-green:blue
+          imagePullPolicy: Always

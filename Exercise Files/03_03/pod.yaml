@@ -1,0 +1,9 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: fetch # this pod is going to keep falling because is define as a pod but is actuallly a job
+spec:
+  containers:
+    - name: fetch
+      image: alpine
+      command: ["/bin/sh", "-c", "wget http://blue-green"]

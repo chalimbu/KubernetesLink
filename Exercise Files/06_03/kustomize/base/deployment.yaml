@@ -3,7 +3,6 @@ kind: Deployment
 metadata:
   name: blue-green
 spec:
-  replicas: 3
   selector:
     matchLabels:
       app: blue-green
@@ -14,4 +13,4 @@ spec:
     spec:
       containers:
         - name: blue-green
-          image: mtinside/blue-green:blue
+          image: mtinside/blue-green:latest

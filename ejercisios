@@ -1,0 +1,47 @@
+1. correr un kluster de kubernetes y aplicarle la configuracion de /01-02/web-declarative.yaml
+verificar los pods para ver el que se  corrio
+
+2. correr con un solo apply los yaml dentro de 01_03 y probar que exponga a internet los servicios green y blue
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+solucion
+1.
+minikube delete
+minikube start
+kubectl apply -f web-declarative.yaml 
+kubectl get pod
+kubectl describe pod web-declarative
+
+
+2.
+cd ../01_03
+kubectl apply -f .
+kubectl get pods
+minikube ip
+kubectl get service
