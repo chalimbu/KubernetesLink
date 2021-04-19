@@ -15,4 +15,4 @@ spec:
     spec:
       containers:
         - name: envbin
-          image: mtinside/envbin:latest
+          image: mtinside/envbin:oneshot
