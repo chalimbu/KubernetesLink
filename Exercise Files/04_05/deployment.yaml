@@ -13,7 +13,7 @@ spec:
     spec:
       containers:
         - name: envbin
-          image: mtinside/envbin:latest
+          image: mtinside/badpod:latest
           imagePullPolicy: Always
           resources:
             requests:
