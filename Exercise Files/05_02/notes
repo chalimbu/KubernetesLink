@@ -1,0 +1,6 @@
+kubectl api-resources | less -S
+brew install kube-ps1
+source "/home/linuxbrew/.linuxbrew/opt/kube-ps1/share/kube-ps1.sh"
+ 1272  PS1='$(kube_ps1)'$PS1
+ kubectl exec -n team1 -ti shell -- /bin/sh
+ # some curl from here apk update, apk add curl, curl envbin|envbin.team1|envbin.team2

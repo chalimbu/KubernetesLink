@@ -3,7 +3,9 @@ verificar los pods para ver el que se  corrio
 
 2. correr con un solo apply los yaml dentro de 01_03 y probar que exponga a internet los servicios green y blue
 
-
+3. generar el yaml con los templates de 06_02/helm
+aplicar el yaml al cluster de kubernetes
+actualizarlo cambiando al imagen de blue a gree : todo sin mirar el archivo de notas
 
 
 
@@ -45,3 +47,12 @@ kubectl apply -f .
 kubectl get pods
 minikube ip
 kubectl get service
+
+3.
+minikube stop
+minikube delete
+minikube start
+helm template -f values-dev.yaml .
+helm install -f values-dev.yaml blue-green .
+#change the label on deployment from blue to green or green to blue
+helm upgrade -f values-dev.yaml blue-green .

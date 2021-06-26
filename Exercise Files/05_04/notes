@@ -1,0 +1,24 @@
+# https://linkerd.io/2.10/overview/
+minikube start
+kubectl version --short
+kubectx
+curl -sL https://run.linkerd.io/install | sh
+export PATH=$PATH:/home/sebastian/.linkerd2/bin
+linkerd check --pre
+linkerd install | kubectl apply -f -
+linkerd check
+kubectl annotate namespace default linkerd.io/inject=enabled # linkerd inject of sidecards
+kubectl apply -f envbin.yaml
+
+linkerd viz install | kubectl apply -f -
+linkerd check
+linkerd viz dashboard &
+#explore default and envbin
+
+--------------------------
+kubectl create namespace cert-manager
+kubectl apply -f https://lnkd.in/gMAGX5A
+kubectl wait --for=condition=Ready pod -l app=webhook -n cert-manager
+export DOCKER_REPO=docker.io/mtinside
+make deploy
+cd etcd-cluster-operator # this folder doesn't exists

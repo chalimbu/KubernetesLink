@@ -1,0 +1,10 @@
+ls
+cd helm/
+helm template -f values-dev.yaml .
+helm install -f values-dev.yaml blue-green .
+kubectl get pods
+kubectl get service
+helm upgrade -f values-dev.yaml blue-green .
+helm history blue-green
+helm template -f values-prod.yaml blue-green .
+history
